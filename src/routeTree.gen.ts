@@ -15,6 +15,7 @@ import { Route as DaftarRouteImport } from './routes/daftar'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as KriteriaRouteImport } from './routes/kriteria'
 import { Route as PenilaianRouteImport } from './routes/penilaian'
+import { Route as PerhitunganRouteImport } from './routes/perhitungan'
 import { Route as PengaduanIndexRouteImport } from './routes/pengaduan.index'
 import { Route as PengaduanIdRouteImport } from './routes/pengaduan.$id'
 import { Route as PengaduanBaruRouteImport } from './routes/pengaduan.baru'
@@ -49,6 +50,11 @@ const PenilaianRoute = PenilaianRouteImport.update({
   path: '/penilaian',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PerhitunganRoute = PerhitunganRouteImport.update({
+  id: '/perhitungan',
+  path: '/perhitungan',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PengaduanIndexRoute = PengaduanIndexRouteImport.update({
   id: '/pengaduan/',
   path: '/pengaduan/',
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRoute
   '/kriteria': typeof KriteriaRoute
   '/penilaian': typeof PenilaianRoute
+  '/perhitungan': typeof PerhitunganRoute
   '/pengaduan/$id': typeof PengaduanIdRoute
   '/pengaduan/baru': typeof PengaduanBaruRoute
   '/pengaduan/': typeof PengaduanIndexRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRoute
   '/kriteria': typeof KriteriaRoute
   '/penilaian': typeof PenilaianRoute
+  '/perhitungan': typeof PerhitunganRoute
   '/pengaduan/$id': typeof PengaduanIdRoute
   '/pengaduan/baru': typeof PengaduanBaruRoute
   '/pengaduan': typeof PengaduanIndexRoute
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRoute
   '/kriteria': typeof KriteriaRoute
   '/penilaian': typeof PenilaianRoute
+  '/perhitungan': typeof PerhitunganRoute
   '/pengaduan/$id': typeof PengaduanIdRoute
   '/pengaduan/baru': typeof PengaduanBaruRoute
   '/pengaduan/': typeof PengaduanIndexRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/kriteria'
     | '/penilaian'
+    | '/perhitungan'
     | '/pengaduan/$id'
     | '/pengaduan/baru'
     | '/pengaduan/'
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/kriteria'
     | '/penilaian'
+    | '/perhitungan'
     | '/pengaduan/$id'
     | '/pengaduan/baru'
     | '/pengaduan'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/kriteria'
     | '/penilaian'
+    | '/perhitungan'
     | '/pengaduan/$id'
     | '/pengaduan/baru'
     | '/pengaduan/'
@@ -142,6 +154,7 @@ export interface RootRouteChildren {
   DashboardRoute: typeof DashboardRoute
   KriteriaRoute: typeof KriteriaRoute
   PenilaianRoute: typeof PenilaianRoute
+  PerhitunganRoute: typeof PerhitunganRoute
   PengaduanIdRoute: typeof PengaduanIdRoute
   PengaduanBaruRoute: typeof PengaduanBaruRoute
   PengaduanIndexRoute: typeof PengaduanIndexRoute
@@ -191,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PenilaianRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/perhitungan': {
+      id: '/perhitungan'
+      path: '/perhitungan'
+      fullPath: '/perhitungan'
+      preLoaderRoute: typeof PerhitunganRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/pengaduan/': {
       id: '/pengaduan/'
       path: '/pengaduan'
@@ -222,6 +242,7 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardRoute: DashboardRoute,
   KriteriaRoute: KriteriaRoute,
   PenilaianRoute: PenilaianRoute,
+  PerhitunganRoute: PerhitunganRoute,
   PengaduanIdRoute: PengaduanIdRoute,
   PengaduanBaruRoute: PengaduanBaruRoute,
   PengaduanIndexRoute: PengaduanIndexRoute,
