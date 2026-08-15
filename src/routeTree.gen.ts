@@ -10,33 +10,206 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlternatifRouteImport } from './routes/alternatif'
+import { Route as DaftarRouteImport } from './routes/daftar'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as HasilRouteImport } from './routes/hasil'
+import { Route as KepalaDesaRouteImport } from './routes/kepala-desa'
+import { Route as KriteriaRouteImport } from './routes/kriteria'
+import { Route as LaporanRouteImport } from './routes/laporan'
+import { Route as PenilaianRouteImport } from './routes/penilaian'
+import { Route as PerhitunganRouteImport } from './routes/perhitungan'
+import { Route as UserRouteImport } from './routes/user'
+import { Route as PengaduanIndexRouteImport } from './routes/pengaduan.index'
+import { Route as PengaduanIdRouteImport } from './routes/pengaduan.$id'
+import { Route as PengaduanBaruRouteImport } from './routes/pengaduan.baru'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlternatifRoute = AlternatifRouteImport.update({
+  id: '/alternatif',
+  path: '/alternatif',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DaftarRoute = DaftarRouteImport.update({
+  id: '/daftar',
+  path: '/daftar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HasilRoute = HasilRouteImport.update({
+  id: '/hasil',
+  path: '/hasil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KepalaDesaRoute = KepalaDesaRouteImport.update({
+  id: '/kepala-desa',
+  path: '/kepala-desa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KriteriaRoute = KriteriaRouteImport.update({
+  id: '/kriteria',
+  path: '/kriteria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LaporanRoute = LaporanRouteImport.update({
+  id: '/laporan',
+  path: '/laporan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PenilaianRoute = PenilaianRouteImport.update({
+  id: '/penilaian',
+  path: '/penilaian',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerhitunganRoute = PerhitunganRouteImport.update({
+  id: '/perhitungan',
+  path: '/perhitungan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UserRoute = UserRouteImport.update({
+  id: '/user',
+  path: '/user',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PengaduanIndexRoute = PengaduanIndexRouteImport.update({
+  id: '/pengaduan/',
+  path: '/pengaduan/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PengaduanIdRoute = PengaduanIdRouteImport.update({
+  id: '/pengaduan/$id',
+  path: '/pengaduan/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PengaduanBaruRoute = PengaduanBaruRouteImport.update({
+  id: '/pengaduan/baru',
+  path: '/pengaduan/baru',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/alternatif': typeof AlternatifRoute
+  '/daftar': typeof DaftarRoute
+  '/dashboard': typeof DashboardRoute
+  '/hasil': typeof HasilRoute
+  '/kepala-desa': typeof KepalaDesaRoute
+  '/kriteria': typeof KriteriaRoute
+  '/laporan': typeof LaporanRoute
+  '/penilaian': typeof PenilaianRoute
+  '/perhitungan': typeof PerhitunganRoute
+  '/user': typeof UserRoute
+  '/pengaduan/$id': typeof PengaduanIdRoute
+  '/pengaduan/baru': typeof PengaduanBaruRoute
+  '/pengaduan/': typeof PengaduanIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/alternatif': typeof AlternatifRoute
+  '/daftar': typeof DaftarRoute
+  '/dashboard': typeof DashboardRoute
+  '/hasil': typeof HasilRoute
+  '/kepala-desa': typeof KepalaDesaRoute
+  '/kriteria': typeof KriteriaRoute
+  '/laporan': typeof LaporanRoute
+  '/penilaian': typeof PenilaianRoute
+  '/perhitungan': typeof PerhitunganRoute
+  '/user': typeof UserRoute
+  '/pengaduan/$id': typeof PengaduanIdRoute
+  '/pengaduan/baru': typeof PengaduanBaruRoute
+  '/pengaduan': typeof PengaduanIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/alternatif': typeof AlternatifRoute
+  '/daftar': typeof DaftarRoute
+  '/dashboard': typeof DashboardRoute
+  '/hasil': typeof HasilRoute
+  '/kepala-desa': typeof KepalaDesaRoute
+  '/kriteria': typeof KriteriaRoute
+  '/laporan': typeof LaporanRoute
+  '/penilaian': typeof PenilaianRoute
+  '/perhitungan': typeof PerhitunganRoute
+  '/user': typeof UserRoute
+  '/pengaduan/$id': typeof PengaduanIdRoute
+  '/pengaduan/baru': typeof PengaduanBaruRoute
+  '/pengaduan/': typeof PengaduanIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/alternatif'
+    | '/daftar'
+    | '/dashboard'
+    | '/hasil'
+    | '/kepala-desa'
+    | '/kriteria'
+    | '/laporan'
+    | '/penilaian'
+    | '/perhitungan'
+    | '/user'
+    | '/pengaduan/$id'
+    | '/pengaduan/baru'
+    | '/pengaduan/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/alternatif'
+    | '/daftar'
+    | '/dashboard'
+    | '/hasil'
+    | '/kepala-desa'
+    | '/kriteria'
+    | '/laporan'
+    | '/penilaian'
+    | '/perhitungan'
+    | '/user'
+    | '/pengaduan/$id'
+    | '/pengaduan/baru'
+    | '/pengaduan'
+  id:
+    | '__root__'
+    | '/'
+    | '/alternatif'
+    | '/daftar'
+    | '/dashboard'
+    | '/hasil'
+    | '/kepala-desa'
+    | '/kriteria'
+    | '/laporan'
+    | '/penilaian'
+    | '/perhitungan'
+    | '/user'
+    | '/pengaduan/$id'
+    | '/pengaduan/baru'
+    | '/pengaduan/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlternatifRoute: typeof AlternatifRoute
+  DaftarRoute: typeof DaftarRoute
+  DashboardRoute: typeof DashboardRoute
+  HasilRoute: typeof HasilRoute
+  KepalaDesaRoute: typeof KepalaDesaRoute
+  KriteriaRoute: typeof KriteriaRoute
+  LaporanRoute: typeof LaporanRoute
+  PenilaianRoute: typeof PenilaianRoute
+  PerhitunganRoute: typeof PerhitunganRoute
+  UserRoute: typeof UserRoute
+  PengaduanIdRoute: typeof PengaduanIdRoute
+  PengaduanBaruRoute: typeof PengaduanBaruRoute
+  PengaduanIndexRoute: typeof PengaduanIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +221,115 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/alternatif': {
+      id: '/alternatif'
+      path: '/alternatif'
+      fullPath: '/alternatif'
+      preLoaderRoute: typeof AlternatifRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/daftar': {
+      id: '/daftar'
+      path: '/daftar'
+      fullPath: '/daftar'
+      preLoaderRoute: typeof DaftarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hasil': {
+      id: '/hasil'
+      path: '/hasil'
+      fullPath: '/hasil'
+      preLoaderRoute: typeof HasilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kepala-desa': {
+      id: '/kepala-desa'
+      path: '/kepala-desa'
+      fullPath: '/kepala-desa'
+      preLoaderRoute: typeof KepalaDesaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kriteria': {
+      id: '/kriteria'
+      path: '/kriteria'
+      fullPath: '/kriteria'
+      preLoaderRoute: typeof KriteriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/laporan': {
+      id: '/laporan'
+      path: '/laporan'
+      fullPath: '/laporan'
+      preLoaderRoute: typeof LaporanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/penilaian': {
+      id: '/penilaian'
+      path: '/penilaian'
+      fullPath: '/penilaian'
+      preLoaderRoute: typeof PenilaianRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/perhitungan': {
+      id: '/perhitungan'
+      path: '/perhitungan'
+      fullPath: '/perhitungan'
+      preLoaderRoute: typeof PerhitunganRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/user': {
+      id: '/user'
+      path: '/user'
+      fullPath: '/user'
+      preLoaderRoute: typeof UserRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pengaduan/': {
+      id: '/pengaduan/'
+      path: '/pengaduan'
+      fullPath: '/pengaduan/'
+      preLoaderRoute: typeof PengaduanIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pengaduan/$id': {
+      id: '/pengaduan/$id'
+      path: '/pengaduan/$id'
+      fullPath: '/pengaduan/$id'
+      preLoaderRoute: typeof PengaduanIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pengaduan/baru': {
+      id: '/pengaduan/baru'
+      path: '/pengaduan/baru'
+      fullPath: '/pengaduan/baru'
+      preLoaderRoute: typeof PengaduanBaruRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlternatifRoute: AlternatifRoute,
+  DaftarRoute: DaftarRoute,
+  DashboardRoute: DashboardRoute,
+  HasilRoute: HasilRoute,
+  KepalaDesaRoute: KepalaDesaRoute,
+  KriteriaRoute: KriteriaRoute,
+  LaporanRoute: LaporanRoute,
+  PenilaianRoute: PenilaianRoute,
+  PerhitunganRoute: PerhitunganRoute,
+  UserRoute: UserRoute,
+  PengaduanIdRoute: PengaduanIdRoute,
+  PengaduanBaruRoute: PengaduanBaruRoute,
+  PengaduanIndexRoute: PengaduanIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
