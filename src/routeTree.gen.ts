@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlternatifRouteImport } from './routes/alternatif'
 import { Route as DaftarRouteImport } from './routes/daftar'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as PengaduanIndexRouteImport } from './routes/pengaduan.index'
@@ -19,6 +20,11 @@ import { Route as PengaduanBaruRouteImport } from './routes/pengaduan.baru'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlternatifRoute = AlternatifRouteImport.update({
+  id: '/alternatif',
+  path: '/alternatif',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DaftarRoute = DaftarRouteImport.update({
@@ -49,6 +55,7 @@ const PengaduanBaruRoute = PengaduanBaruRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/alternatif': typeof AlternatifRoute
   '/daftar': typeof DaftarRoute
   '/dashboard': typeof DashboardRoute
   '/pengaduan/$id': typeof PengaduanIdRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/alternatif': typeof AlternatifRoute
   '/daftar': typeof DaftarRoute
   '/dashboard': typeof DashboardRoute
   '/pengaduan/$id': typeof PengaduanIdRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/alternatif': typeof AlternatifRoute
   '/daftar': typeof DaftarRoute
   '/dashboard': typeof DashboardRoute
   '/pengaduan/$id': typeof PengaduanIdRoute
@@ -76,6 +85,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/alternatif'
     | '/daftar'
     | '/dashboard'
     | '/pengaduan/$id'
@@ -84,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/alternatif'
     | '/daftar'
     | '/dashboard'
     | '/pengaduan/$id'
@@ -92,6 +103,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/alternatif'
     | '/daftar'
     | '/dashboard'
     | '/pengaduan/$id'
@@ -101,6 +113,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlternatifRoute: typeof AlternatifRoute
   DaftarRoute: typeof DaftarRoute
   DashboardRoute: typeof DashboardRoute
   PengaduanIdRoute: typeof PengaduanIdRoute
@@ -115,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alternatif': {
+      id: '/alternatif'
+      path: '/alternatif'
+      fullPath: '/alternatif'
+      preLoaderRoute: typeof AlternatifRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/daftar': {
@@ -157,6 +177,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlternatifRoute: AlternatifRoute,
   DaftarRoute: DaftarRoute,
   DashboardRoute: DashboardRoute,
   PengaduanIdRoute: PengaduanIdRoute,
