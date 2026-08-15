@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DaftarRouteImport } from './routes/daftar'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as PengaduanIndexRouteImport } from './routes/pengaduan.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +29,44 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PengaduanIndexRoute = PengaduanIndexRouteImport.update({
+  id: '/pengaduan/',
+  path: '/pengaduan/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/daftar': typeof DaftarRoute
   '/dashboard': typeof DashboardRoute
+  '/pengaduan/': typeof PengaduanIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/daftar': typeof DaftarRoute
   '/dashboard': typeof DashboardRoute
+  '/pengaduan': typeof PengaduanIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/daftar': typeof DaftarRoute
   '/dashboard': typeof DashboardRoute
+  '/pengaduan/': typeof PengaduanIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/daftar' | '/dashboard'
+  fullPaths: '/' | '/daftar' | '/dashboard' | '/pengaduan/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/daftar' | '/dashboard'
-  id: '__root__' | '/' | '/daftar' | '/dashboard'
+  to: '/' | '/daftar' | '/dashboard' | '/pengaduan'
+  id: '__root__' | '/' | '/daftar' | '/dashboard' | '/pengaduan/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DaftarRoute: typeof DaftarRoute
   DashboardRoute: typeof DashboardRoute
+  PengaduanIndexRoute: typeof PengaduanIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +92,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pengaduan/': {
+      id: '/pengaduan/'
+      path: '/pengaduan'
+      fullPath: '/pengaduan/'
+      preLoaderRoute: typeof PengaduanIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DaftarRoute: DaftarRoute,
   DashboardRoute: DashboardRoute,
+  PengaduanIndexRoute: PengaduanIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
