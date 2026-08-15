@@ -106,7 +106,8 @@ export const daftarDusun = ["Dusun A", "Dusun B", "Dusun C", "Dusun D"];
 export const normalisasi = matriksKeputusan.map((row) => ({
   alternatif: row.alternatif,
   nilai: row.nilai.map((v, i) => {
-    const kolom = matriksKeputusan.map((r) => r.nilai[i]);
-    return kriteria[i].jenis === "Benefit" ? v / Math.max(...kolom) : Math.min(...kolom) / v;
+    const kolom = matriksKeputusan.map((r) => r.nilai[i] ?? 0);
+    const jenis = kriteria[i]?.jenis ?? "Benefit";
+    return jenis === "Benefit" ? v / Math.max(...kolom) : Math.min(...kolom) / v;
   }),
 }));
