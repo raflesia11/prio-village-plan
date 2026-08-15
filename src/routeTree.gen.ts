@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AlternatifRouteImport } from './routes/alternatif'
 import { Route as DaftarRouteImport } from './routes/daftar'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as KriteriaRouteImport } from './routes/kriteria'
 import { Route as PengaduanIndexRouteImport } from './routes/pengaduan.index'
 import { Route as PengaduanIdRouteImport } from './routes/pengaduan.$id'
 import { Route as PengaduanBaruRouteImport } from './routes/pengaduan.baru'
@@ -37,6 +38,11 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KriteriaRoute = KriteriaRouteImport.update({
+  id: '/kriteria',
+  path: '/kriteria',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PengaduanIndexRoute = PengaduanIndexRouteImport.update({
   id: '/pengaduan/',
   path: '/pengaduan/',
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/alternatif': typeof AlternatifRoute
   '/daftar': typeof DaftarRoute
   '/dashboard': typeof DashboardRoute
+  '/kriteria': typeof KriteriaRoute
   '/pengaduan/$id': typeof PengaduanIdRoute
   '/pengaduan/baru': typeof PengaduanBaruRoute
   '/pengaduan/': typeof PengaduanIndexRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/alternatif': typeof AlternatifRoute
   '/daftar': typeof DaftarRoute
   '/dashboard': typeof DashboardRoute
+  '/kriteria': typeof KriteriaRoute
   '/pengaduan/$id': typeof PengaduanIdRoute
   '/pengaduan/baru': typeof PengaduanBaruRoute
   '/pengaduan': typeof PengaduanIndexRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/alternatif': typeof AlternatifRoute
   '/daftar': typeof DaftarRoute
   '/dashboard': typeof DashboardRoute
+  '/kriteria': typeof KriteriaRoute
   '/pengaduan/$id': typeof PengaduanIdRoute
   '/pengaduan/baru': typeof PengaduanBaruRoute
   '/pengaduan/': typeof PengaduanIndexRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/alternatif'
     | '/daftar'
     | '/dashboard'
+    | '/kriteria'
     | '/pengaduan/$id'
     | '/pengaduan/baru'
     | '/pengaduan/'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/alternatif'
     | '/daftar'
     | '/dashboard'
+    | '/kriteria'
     | '/pengaduan/$id'
     | '/pengaduan/baru'
     | '/pengaduan'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/alternatif'
     | '/daftar'
     | '/dashboard'
+    | '/kriteria'
     | '/pengaduan/$id'
     | '/pengaduan/baru'
     | '/pengaduan/'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   AlternatifRoute: typeof AlternatifRoute
   DaftarRoute: typeof DaftarRoute
   DashboardRoute: typeof DashboardRoute
+  KriteriaRoute: typeof KriteriaRoute
   PengaduanIdRoute: typeof PengaduanIdRoute
   PengaduanBaruRoute: typeof PengaduanBaruRoute
   PengaduanIndexRoute: typeof PengaduanIndexRoute
@@ -151,6 +164,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kriteria': {
+      id: '/kriteria'
+      path: '/kriteria'
+      fullPath: '/kriteria'
+      preLoaderRoute: typeof KriteriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/pengaduan/': {
       id: '/pengaduan/'
       path: '/pengaduan'
@@ -180,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   AlternatifRoute: AlternatifRoute,
   DaftarRoute: DaftarRoute,
   DashboardRoute: DashboardRoute,
+  KriteriaRoute: KriteriaRoute,
   PengaduanIdRoute: PengaduanIdRoute,
   PengaduanBaruRoute: PengaduanBaruRoute,
   PengaduanIndexRoute: PengaduanIndexRoute,
