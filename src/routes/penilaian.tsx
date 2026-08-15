@@ -44,7 +44,7 @@ function PenilaianPage() {
       <div className="max-w-3xl space-y-5 rounded-xl border bg-card p-5 shadow-card">
         <div className="max-w-sm space-y-2">
           <p className="text-sm font-medium">Alternatif</p>
-          <Select defaultValue={alternatif[0]?.nama}>
+          <Select defaultValue={alternatif[0]?.nama ?? ""}>
             <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
